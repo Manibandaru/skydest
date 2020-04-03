@@ -8,8 +8,8 @@
     """,
 
     'summary': 'This module helps to avoid Human Mistakes',
-    'depends': ['base','crm','project', 'sale','account','purchase','product_margin','account_asset','a2nsoft_essentials','account_reports_xlsx','account_standard_report','backend_theme_v11',
-                'check_printing','custom_account','custom_hr','google_map','mail_debrand','odoo_web_login','pos_ticket','report_xlsx',
+    'depends': ['base','event','website_hr_recruitment','account','product_margin','account_asset','a2nsoft_essentials','account_reports_xlsx','account_standard_report','backend_theme_v11',
+                'custom_account','google_map','mail_debrand','odoo_web_login','report_xlsx',
                  'vat_report','web_debranding'],
 
 

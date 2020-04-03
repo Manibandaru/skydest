@@ -9,7 +9,7 @@
 
 """,
     'author': 'Mani Shankar',
-    'depends': ['base','web','event','hr','hr_recruitment','website_partner',  'website_mail', 'website_form','website_event'],
+    'depends': ['base','web','hr','hr_recruitment','website_partner',  'website_mail', 'website_form'],
     'data': [
 
         'views/badge_view.xml',

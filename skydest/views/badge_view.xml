@@ -47,60 +47,60 @@
         </field>
     </record>
 
-    <!-- template use to render a Registration Badge -->
-    <template id="event.event_registration_report_template_badge">
-        <t t-call="web.basic_layout">
-            <t t-foreach="docs" t-as="o">
-                <div class="page">
-                    <div class="row">
-                        <!-- Front -->
-                        <div class=" text-center" >
-                            <div>
-                                <div class="text-center">
-                                    <img t-att-src="'/skydest/static/comeonkerala.png'" style="max-height:4cm; max-width:8cm;float:left"/>
-                                    <img t-att-src="'/skydest/static/infinity.jpeg'" style="max-height:4cm; max-width:8cm;float:right"/>
+<!--    &lt;!&ndash; template use to render a Registration Badge &ndash;&gt;-->
+<!--    <template id="event.event_registration_report_template_badge">-->
+<!--        <t t-call="web.basic_layout">-->
+<!--            <t t-foreach="docs" t-as="o">-->
+<!--                <div class="page">-->
+<!--                    <div class="row">-->
+<!--                        &lt;!&ndash; Front &ndash;&gt;-->
+<!--                        <div class=" text-center" >-->
+<!--                            <div>-->
+<!--                                <div class="text-center">-->
+<!--                                    <img t-att-src="'/skydest/static/comeonkerala.png'" style="max-height:4cm; max-width:8cm;float:left"/>-->
+<!--                                    <img t-att-src="'/skydest/static/infinity.jpeg'" style="max-height:4cm; max-width:8cm;float:right"/>-->
 
-<!--                                    <h5 t-field="o.event_id.name"/>-->
-<!--                                    <h5>( <i class="fa fa-clock-o" aria-label="Period" role="img" title="Period"></i> <span class="bold" style="color:blue" itemprop="startDate" t-field="o.event_id.with_context(tz=o.event_id.date_tz).date_begin" t-options='{"hide_seconds": True}'> </span> <i>to</i> <span itemprop="endDate" t-field="o.event_id.with_context(tz=o.event_id.date_tz).date_end" t-options='{"hide_seconds": True}'> </span> )</h5>-->
-                                </div>
-                                <div style="border:1px solid #9a1d63;padding:15px 0 0 0;border-radius:30px 30px 0px 0px;clear:both">
-                                    <div>
-                                        <h5 t-field="o.event_id.name"/>
-                                        <h5>( <i class="fa fa-clock-o" aria-label="Period" role="img" title="Period"></i> <span class="bold" style="color:blue;font-weight:700" itemprop="startDate" t-field="o.event_id.with_context(tz=o.event_id.date_tz).date_begin" t-options='{"hide_seconds": True}'> </span> <i>TO</i> <span class="bold" style="color:blue;font-weight:700" itemprop="endDate" t-field="o.event_id.with_context(tz=o.event_id.date_tz).date_end" t-options='{"hide_seconds": True}'> </span> )</h5>
-                                    </div>
-                                    <div style="padding-bottom:10px" class=" text-center" id="o_event_name">
-                                        <small>
-                                            <h3 t-field="o.name"/>
-                                        </small>
-                                    </div>
-                                    <div style="background-color:#9a1d63;padding:10px">
-                                        <h3 style="text-transform:uppercase;letter-spacing:2px;font-weight:700;color:#fbfbfb">Participant</h3>
-                                    </div>
-                                </div>
-                                <div >
-<!--                                    <div class="">-->
-<!--                                        <span class="d-block">Registration Partner</span>-->
-<!--                                        <img t-att-src="'/skydest/static/a2nsoft.png'" style="max-height:5cm; max-width:5cm;"/>-->
+<!--&lt;!&ndash;                                    <h5 t-field="o.event_id.name"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <h5>( <i class="fa fa-clock-o" aria-label="Period" role="img" title="Period"></i> <span class="bold" style="color:blue" itemprop="startDate" t-field="o.event_id.with_context(tz=o.event_id.date_tz).date_begin" t-options='{"hide_seconds": True}'> </span> <i>to</i> <span itemprop="endDate" t-field="o.event_id.with_context(tz=o.event_id.date_tz).date_end" t-options='{"hide_seconds": True}'> </span> )</h5>&ndash;&gt;-->
+<!--                                </div>-->
+<!--                                <div style="border:1px solid #9a1d63;padding:15px 0 0 0;border-radius:30px 30px 0px 0px;clear:both">-->
+<!--                                    <div>-->
+<!--                                        <h5 t-field="o.event_id.name"/>-->
+<!--                                        <h5>( <i class="fa fa-clock-o" aria-label="Period" role="img" title="Period"></i> <span class="bold" style="color:blue;font-weight:700" itemprop="startDate" t-field="o.event_id.with_context(tz=o.event_id.date_tz).date_begin" t-options='{"hide_seconds": True}'> </span> <i>TO</i> <span class="bold" style="color:blue;font-weight:700" itemprop="endDate" t-field="o.event_id.with_context(tz=o.event_id.date_tz).date_end" t-options='{"hide_seconds": True}'> </span> )</h5>-->
 <!--                                    </div>-->
-<!--                                    <div class="">-->
-<!--                                        <span class="d-block">An Initiative By</span>-->
-<!--                                       <img t-att-src="'/skydest/static/madhyamam.png'" style="max-height:5cm; max-width:6cm;"/>-->
+<!--                                    <div style="padding-bottom:10px" class=" text-center" id="o_event_name">-->
+<!--                                        <small>-->
+<!--                                            <h3 t-field="o.name"/>-->
+<!--                                        </small>-->
 <!--                                    </div>-->
-                                    <img t-att-src="'/skydest/static/image.jpg'" style=" width:100%;max-width:100%;"/>
+<!--                                    <div style="background-color:#9a1d63;padding:10px">-->
+<!--                                        <h3 style="text-transform:uppercase;letter-spacing:2px;font-weight:700;color:#fbfbfb">Participant</h3>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div >-->
+<!--&lt;!&ndash;                                    <div class="">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <span class="d-block">Registration Partner</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <img t-att-src="'/skydest/static/a2nsoft.png'" style="max-height:5cm; max-width:5cm;"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <span class="d-block">An Initiative By</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                                       <img t-att-src="'/skydest/static/madhyamam.png'" style="max-height:5cm; max-width:6cm;"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--                                    <img t-att-src="'/skydest/static/image.jpg'" style=" width:100%;max-width:100%;"/>-->
 
-                                 </div>
+<!--                                 </div>-->
 
 
 
 
-                            </div>
-                        </div>
+<!--                            </div>-->
+<!--                        </div>-->
 
-                    </div>
-                </div>
-            </t>
-        </t>
-    </template>
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </t>-->
+<!--        </t>-->
+<!--    </template>-->
 
     <record id="crm_case_form_view_job_inherit_skydest" model="ir.ui.view">
         <field name="name">hr.applicant.form.inherit1</field>
@@ -514,57 +514,57 @@
 
 
 
-    <template id="website_event.registration_attendee_details" name="Registration Attendee Details">
-    <div role="dialog" id="modal_attendees_registration" class="modal fade" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <form id="attendee_registration" t-attf-action="/event/#{slug(event)}/registration/confirm" method="post" class="js_website_submit_form">
-                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                <div class="modal-content">
-                    <header class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel"><strong>Attendees</strong></h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">x</button>
-                    </header>
-                    <main class="modal-body">
-                        <div class="container">
-                            <t t-set="counter_type" t-value="1"/>
-                            <t t-set="counter" t-value="0"/>
-                            <t t-foreach="tickets" t-as="ticket">
-                                <h4 class="o_page_header mt16">
-                                    <strong>
-                                        Ticket Type #<t t-raw="counter_type"/>: <t t-esc="ticket['name']"/>
-                                        <t t-if="ticket['price'] == 0">(Free)</t>
-                                    </strong>
-                                </h4>
-                                <div class="row">
-                                    <div class="col-lg-4"><strong>Name</strong></div>
-                                    <div class="col-lg-5"><strong>Email</strong></div>
-                                    <div class="col-lg-3"><strong>Phone</strong> </div>
-                                </div>
-                                <t t-foreach="range(1, ticket['quantity'] + 1)" t-as="att_counter" name="attendee_loop">
-                                    <t t-set="counter" t-value="counter + 1"/>
-                                    <div class="row mb4">
-                                        <t t-set="attendee_placeholder">Attendee #%s</t>
-                                        <div class="col-lg-4"><input class='form-control' type='text' t-attf-name="#{counter}-name" required="This field is required" t-att-placeholder="attendee_placeholder %counter"/></div>
-                                        <div class="col-lg-5"><input class='form-control' type='email' t-attf-name="#{counter}-email" required="This field is required"/></div>
-                                        <div class="col-lg-3"><input class='form-control' type='tel' t-attf-name="#{counter}-phone" required="This field is required"/></div>
-                                        <input class='d-none' type='text' t-attf-name="#{counter}-ticket_id" t-attf-value="#{ticket['id']}"/>
-                                    </div>
-                                </t>
-                                <t t-set="counter_type" t-value="counter_type + 1"/>
-                            </t>
-                        </div>
-                    </main>
-                    <footer class="modal-footer">
-                        <div class="float-left">
-                            <button type="submit" class="btn btn-primary">Continue</button>
-                            <button type="button" class="btn btn-secondary js_goto_event" data-dismiss="modal">Cancel Registration</button>
-                        </div>
-                    </footer>
-                </div>
-            </form>
-        </div>
-    </div>
-</template>
+<!--    <template id="website_event.registration_attendee_details" name="Registration Attendee Details">-->
+<!--    <div role="dialog" id="modal_attendees_registration" class="modal fade" tabindex="-1">-->
+<!--        <div class="modal-dialog modal-lg">-->
+<!--            <form id="attendee_registration" t-attf-action="/event/#{slug(event)}/registration/confirm" method="post" class="js_website_submit_form">-->
+<!--                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>-->
+<!--                <div class="modal-content">-->
+<!--                    <header class="modal-header">-->
+<!--                        <h4 class="modal-title" id="myModalLabel"><strong>Attendees</strong></h4>-->
+<!--                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">x</button>-->
+<!--                    </header>-->
+<!--                    <main class="modal-body">-->
+<!--                        <div class="container">-->
+<!--                            <t t-set="counter_type" t-value="1"/>-->
+<!--                            <t t-set="counter" t-value="0"/>-->
+<!--                            <t t-foreach="tickets" t-as="ticket">-->
+<!--                                <h4 class="o_page_header mt16">-->
+<!--                                    <strong>-->
+<!--                                        Ticket Type #<t t-raw="counter_type"/>: <t t-esc="ticket['name']"/>-->
+<!--                                        <t t-if="ticket['price'] == 0">(Free)</t>-->
+<!--                                    </strong>-->
+<!--                                </h4>-->
+<!--                                <div class="row">-->
+<!--                                    <div class="col-lg-4"><strong>Name</strong></div>-->
+<!--                                    <div class="col-lg-5"><strong>Email</strong></div>-->
+<!--                                    <div class="col-lg-3"><strong>Phone</strong> </div>-->
+<!--                                </div>-->
+<!--                                <t t-foreach="range(1, ticket['quantity'] + 1)" t-as="att_counter" name="attendee_loop">-->
+<!--                                    <t t-set="counter" t-value="counter + 1"/>-->
+<!--                                    <div class="row mb4">-->
+<!--                                        <t t-set="attendee_placeholder">Attendee #%s</t>-->
+<!--                                        <div class="col-lg-4"><input class='form-control' type='text' t-attf-name="#{counter}-name" required="This field is required" t-att-placeholder="attendee_placeholder %counter"/></div>-->
+<!--                                        <div class="col-lg-5"><input class='form-control' type='email' t-attf-name="#{counter}-email" required="This field is required"/></div>-->
+<!--                                        <div class="col-lg-3"><input class='form-control' type='tel' t-attf-name="#{counter}-phone" required="This field is required"/></div>-->
+<!--                                        <input class='d-none' type='text' t-attf-name="#{counter}-ticket_id" t-attf-value="#{ticket['id']}"/>-->
+<!--                                    </div>-->
+<!--                                </t>-->
+<!--                                <t t-set="counter_type" t-value="counter_type + 1"/>-->
+<!--                            </t>-->
+<!--                        </div>-->
+<!--                    </main>-->
+<!--                    <footer class="modal-footer">-->
+<!--                        <div class="float-left">-->
+<!--                            <button type="submit" class="btn btn-primary">Continue</button>-->
+<!--                            <button type="button" class="btn btn-secondary js_goto_event" data-dismiss="modal">Cancel Registration</button>-->
+<!--                        </div>-->
+<!--                    </footer>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</template>-->
 
 
 
