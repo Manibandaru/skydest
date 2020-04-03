@@ -423,7 +423,8 @@
                 'certification',
                 'intern_role',
                 'university',
-                'course'
+                'course',
+                'other_job_role'
 
 
             ]"/>
