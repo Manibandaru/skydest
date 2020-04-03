@@ -8,9 +8,9 @@
     """,
 
     'summary': 'This module helps to avoid Human Mistakes',
-    'depends': ['base','event','website_hr_recruitment','account','product_margin','account_asset','a2nsoft_essentials','account_reports_xlsx','account_standard_report','backend_theme_v11',
-                'custom_account','google_map','mail_debrand','odoo_web_login','report_xlsx',
-                 'vat_report','web_debranding'],
+    'depends': ['base','website_hr_recruitment','backend_theme_v11',
+                'odoo_web_login','report_xlsx',
+                'web_debranding'],
 
 
 

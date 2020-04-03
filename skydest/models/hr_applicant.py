@@ -59,6 +59,7 @@ class Applicant(models.Model):
 
 
                                     ],string='Internship Role')
+    other_job_role = fields.Char('Other Job Role')
     description = fields.Text("Cover Letter")
     whatsapp = fields.Char('WhatsApp Number')
     availability_intern = fields.Selection([('immediate','Immediate'),
