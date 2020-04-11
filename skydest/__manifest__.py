@@ -1,6 +1,6 @@
 
 {
-    'name': 'Badge View report',
+    'name': 'Skydest Recruitment',
     'version': '1.0',
     'website' : 'https://www.sidmectech.com',
     'category': 'Base',
@@ -13,6 +13,9 @@
     'data': [
 
         'views/badge_view.xml',
+        'views/website_menu.xml',
+        'views/res_partner_view.xml',
+        'views/res_partner_portal.xml',
 
 
     ],

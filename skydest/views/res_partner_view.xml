@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="res_partner_profile_creation_form" model="ir.ui.view">
+        <field name="name">res.partner.profile.creation.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//page[@name='sales_purchases']" position="after">
+                <page string="Education Details">
+                    <group>
+                    <group>
+                        <field name="experience"/>
+                        <field name="education"/>
+                        <field name="visa_status"/>
+                        <field name="availability"/>
+                        <field name="salary_exp"/>
+                        <field name="nationality"/>
+                        <field name="gender"/>
+                        <field name="emirate"/>
+                        <field name="dob"/>
+                    </group>
+                        <group>
+                            <field name="university"/>
+                            <field name="course"/>
+                            <field name="year_of_study"/>
+                            <field name="intern_role"/>
+                            <field name="other_job_role"/>
+                            <field name="availability_intern"/>
+                            <field name="previous_emp"/>
+                            <field name="certification"/>
+                        </group>
+                    </group>
+
+
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

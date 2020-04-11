@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="portal.portal_my_details">
+        <t t-call="portal.portal_layout">
+            <t t-set="additional_title">Your Contact Details</t>
+            <h3>Your Details</h3>
+            <form action="/my/account" method="post">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                <div class="row o_portal_details">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-12">
+                              <div t-if="error_message" class="alert alert-danger">
+                                  <t t-foreach="error_message" t-as="err"><t t-esc="err"/><br /></t>
+                              </div>
+                            </div>
+                            <div t-attf-class="form-group #{error.get('name') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label" for="name">Your Name</label>
+                                <input type="text" name="name" class="form-control" t-att-value="name or partner.name" />
+                            </div>
+                            <div t-attf-class="form-group #{error.get('email') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label" for="email">Email</label>
+                                <input type="email" name="email" class="form-control" t-att-value="email or partner.email" />
+                            </div>
+                            <div t-attf-class="form-group #{error.get('phone') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label" for="phone">Phone</label>
+                                <input type="tel" name="phone" class="form-control" t-att-value="phone or partner.phone" />
+                            </div>
+
+                            <div class="clearfix" />
+                            <div t-attf-class="form-group #{error.get('company_name') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label label-optional" for="company_name">Company Name</label>
+                                <p t-if="partner.commercial_partner_id.is_company" class="form-control" t-esc="partner.commercial_company_name"/>
+                                <input t-else="" type="text" name="company_name" class="form-control" t-att-value="company_name or partner.company_name"/>
+                            </div>
+                            <div t-if="has_check_vat" t-attf-class="form-group #{error.get('vat') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label label-optional" for="vat">VAT Number</label>
+                                <input type="text" name="vat" class="form-control" t-att-value="vat or partner.vat" />
+                            </div>
+
+                            <div class="clearfix" />
+                            <div t-attf-class="form-group #{error.get('street') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label" for="street">Street</label>
+                                <input type="text" name="street" class="form-control" t-att-value="street or partner.street"/>
+                            </div>
+                            <div t-attf-class="form-group #{error.get('city') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label" for="city">City</label>
+                                <input type="text" name="city" class="form-control" t-att-value="city or partner.city" />
+                            </div>
+                            <div t-attf-class="form-group #{error.get('zip') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label" for="zipcode">Zip / Postal Code</label>
+                                <input type="text" name="zipcode" class="form-control" t-att-value="zipcode or partner.zip" />
+                            </div>
+                            <div t-attf-class="form-group #{error.get('country_id') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label" for="country_id">Country</label>
+                                <select name="country_id" class="form-control">
+                                    <option value="">Country...</option>
+                                    <t t-foreach="countries or []" t-as="country">
+                                        <option t-att-value="country.id" t-att-selected="country.id == int(country_id) if country_id else country.id == partner.country_id.id">
+                                            <t t-esc="country.name" />
+                                        </option>
+                                    </t>
+                                </select>
+                            </div>
+                            <div t-attf-class="form-group #{error.get('state_id') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label label-optional" for="state_id">State / Province</label>
+                                <select name="state_id" class="form-control">
+                                    <option value="">select...</option>
+                                    <t t-foreach="states or []" t-as="state">
+                                        <option t-att-value="state.id" style="display:none;" t-att-data-country_id="state.country_id.id" t-att-selected="state.id == partner.state_id.id">
+                                            <t t-esc="state.name" />
+                                        </option>
+                                    </t>
+                                </select>
+                            </div>
+                            <input type="hidden" name="redirect" t-att-value="redirect"/>
+
+
+<h3>Professional  Details</h3>
+
+
+                        <div  t-attf-class="form-group #{error.get('experience') and 'has-error' or ''} col-lg-6">
+
+                                <label class="col-form-label" for="experience">Experience</label>
+
+
+                            <select name="experience" t-attf-class="form-control ">
+            <option value="0">0-1 Year</option>
+            <option value="1">1-2 Years</option>
+            <option value="2">2-3 Years</option>
+            <option value="3">3-4 Years</option>
+                                <option value="4">4-5 Years</option>
+                                <option value="5">5+ Years</option>
+        </select>
+                        </div>
+
+                        <div t-attf-class="form-group #{error.get('experience') and 'has-error' or ''} col-lg-6">
+
+                                <label class="col-form-label" for="education">Education</label>
+
+                                <select name="education" t-attf-class="form-control o_website_form_input">
+            <option value="school">School</option>
+            <option value="higher_secondary">Higher Secondary</option>
+            <option value="diploma">Diploma</option>
+            <option value="degree">Degree</option>
+            <option value="post_graduate">Post Graduate</option>
+        </select>
+
+                        </div>
+
+                        <div t-attf-class="form-group #{error.get('university') and 'has-error' or ''} col-lg-6">
+                                <label class="control-label" for="university">University</label>
+                                <input type="text" class="form-control" name="university" required="1"/>
+                        </div>
+
+<!--                         <div t-attf-class="form-group #{error.get('name') and 'has-error' or ''} col-lg-6">-->
+<!--                                <label class="control-label" for="name">Your Name</label>-->
+<!--                                <input type="text" name="name" class="form-control" t-att-value="name or partner.name" />-->
+<!--                            </div>-->
+
+                          <div t-attf-class="form-group #{error.get('experience') and 'has-error' or ''} col-lg-6">
+                                <label class="col-form-label" for="course">Course of Study</label>
+                                <input type="text" class="form-control" name="course" required="1"/>
+                        </div>
+
+
+
+                         <div t-attf-class="form-group #{error.get('year_of_study') and 'has-error' or ''} col-lg-6">
+                                <label class="col-form-label" for="year_of_study">Year Of Study</label>
+                                <input type="text" class="form-control" name="year_of_study" required="1"/>
+                        </div>
+
+                            <div class="clearfix" />
+
+
+                        <div t-attf-class="form-group #{error.get('experience') and 'has-error' or ''} col-lg-6">
+
+                                <label class="col-form-label" for="intern_role">Job Role</label>
+
+
+                                <select name="intern_role" t-attf-class="form-control o_website_form_input">
+                                    <option value="accounts">Accounting or Finance</option>
+                                    <option value="admin">Administration</option>
+                                    <option value="architecture">Architecture</option>
+                                    <option value="sales">Sales, Marketing and business development</option>
+                                    <option value="social">Community and Social Services Internships</option>
+                                    <option value="consultant">Consultant</option>
+                                    <option value="customer_service">Customer Services and Support</option>
+                                    <option value="education">Education Internships</option>
+                                    <option value="engineering">Engineering</option>
+                                    <option value="data_analytics">Data and Analytics</option>
+                                    <option value="animation">Design and Animation</option>
+                                    <option value="healthcare">Healthcare Services</option>
+                                    <option value="hr">Human Resources </option>
+                                    <option value="interior">Interior Design</option>
+                                    <option value="it">IT, Web and Software Development</option>
+                                    <option value="legal">Legal</option>
+                                    <option value="media">Media and Communications</option>
+                                    <option value="operations">Operations</option>
+                                    <option value="photography">Photography and Videography</option>
+                                    <option value="logistics">Supply chain and logistics management</option>
+                                    <option value="project_management">Project Management</option>
+                                    <option value="events">Promotions and events</option>
+                                     <option value="research">Research</option>
+                                    <option value="journalism">Journalism and writing</option>
+                                    <option value="other">Other</option>
+                                </select>
+
+                        </div>
+
+                        <div  t-attf-class="form-group #{error.get('previous_emp') and 'has-error' or ''} col-lg-6">
+                                <label class="col-form-label" for="previous_emp">If Other Specify</label>
+                                <input type="text" class="form-control " name="other_job_role" />
+                        </div>
+
+
+                        <div t-attf-class="form-group #{error.get('visa_status') and 'has-error' or ''} col-lg-6">
+                                <label class="col-form-label" for="visa_status">Visa Status</label>
+                                <select name="visa_status" t-attf-class="form-control">
+                                    <option value="student">Student Visa</option>
+                                    <option value="visit">Visit</option>
+                                    <option value="employed">Employement</option>
+                                    <option value="dependent">Dependent</option>
+                                </select>
+                        </div>
+
+                        <div t-attf-class="form-group #{error.get('availability') and 'has-error' or ''} col-lg-6">
+                                <label class="col-form-label" for="availability">Availabilty</label>
+                               <select name="availability" t-attf-class="form-control ">
+                                    <option value="immediate">Immediate</option>
+                                    <option value="30">30 Days</option>
+                                    <option value="60">60 Days</option>
+                                    <option value="90">90 Days</option>
+                                </select>
+                        </div>
+
+
+                         <div t-attf-class="form-group #{error.get('availability_intern') and 'has-error' or ''} col-lg-6">
+                                <label class="col-form-label" for="availability_intern">Internship Availabilty</label>
+                               <select name="availability_intern" t-attf-class="form-control ">
+                                    <option value="immediate">Immediate</option>
+                                    <option value="0-3">0-3 Months</option>
+                                    <option value="3-6">3-6 Months</option>
+                                    <option value="6-12">6-12 Months</option>
+                                </select>
+                        </div>
+
+
+
+                        <div t-attf-class="form-group #{error.get('salary_exp') and 'has-error' or ''} col-lg-6">
+
+                                <label class="col-form-label" for="salary_exp">Expected Salary</label>
+
+                                <select name="salary_exp" t-attf-class="form-control">
+                                    <option value="no_salary">No Salary</option>
+                                    <option value="1000-2000">1000-2000 AED</option>
+                                    <option value="2000-3000">2000-3000 AED</option>
+                                    <option value="3000-5000">3000-5000 AED</option>
+                                    <option value="5000-10000">5000-10000 AED</option>
+                                    <option value="10000-15000">10000-15000 AED</option>
+                                    <option value="15000+">15000+ AED</option>
+                                 </select>
+
+                        </div>
+
+
+                        <div t-attf-class="form-group #{error.get('experience') and 'has-error' or ''} col-lg-6">
+                                <label class="col-form-label" for="previous_emp">Previous Employer</label>
+                                <input type="text" class="form-control o_website_form_input" name="previous_emp" required="1"/>
+                        </div>
+
+                        <div t-attf-class="form-group #{error.get('certification') and 'has-error' or ''} col-lg-6">
+
+                                <label class="col-form-label" for="certification">Certifications</label>
+
+                                <input type="text" class="form-control " name="certification" required="1"/>
+
+                        </div>
+
+
+
+
+
+                        <div t-attf-class="form-group #{error.get('experience') and 'has-error' or ''} col-lg-6">
+
+                                <label class="col-form-label" for="gender">Gender</label>
+                               <select name="gender" t-attf-class="form-control o_website_form_input">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+
+        </select>
+
+                        </div>
+
+                        <div t-attf-class="form-group #{error.get('emirate') and 'has-error' or ''} col-lg-6">
+
+                                <label class="col-form-label" for="emirate">Emirate</label>
+
+                                <select name="emirate" t-attf-class="form-control ">
+            <option value="dubai">Dubai</option>
+            <option value="sharjah">Sharjah</option>
+            <option value="ajman">Ajman</option>
+            <option value="ras_al_kaimah">RAK</option>
+                                    <option value="umm_al_quwain">UAQ</option>
+                                    <option value="fujairah">Fujairah</option>
+                                    <option value="abudhabi">Abu Dhabi</option>
+        </select>
+
+                        </div>
+
+
+
+                        <div t-attf-class="form-group #{error.get('partner_phone') and 'has-error' or ''} col-lg-6">
+                                <label class="col-form-label" for="partner_phone">Your Phone Number</label>
+                                <input type="text" class="form-control " name="partner_phone" required=""/>
+                        </div>
+
+                        <div t-attf-class="form-group #{error.get('whatsapp') and 'has-error' or ''} col-lg-6">
+                                <label class="col-form-label" for="whatsapp">WhatsApp Number</label>
+                                <input type="text" class="form-control " name="whatsapp" required=""/>
+                        </div>
+
+                        <div t-attf-class="form-group #{error.get('description') and 'has-error' or ''} col-lg-6">
+                                <label class="col-form-label" for="description">Cover Letter</label>
+                                <textarea class="form-control " name="description"></textarea>
+                        </div>
+
+
+
+
+
+                        <div t-attf-class="form-group #{error.get('Resume') and 'has-error' or ''} col-lg-6">
+                            <label class="col-form-label" for="Resume">Resume (attach pdf file)</label>
+                            <input type="file" class="form-control o_website_form_input" name="Resume" />
+                        </div>
+
+
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="clearfix">
+                            <button type="submit" class="btn btn-primary pull-right mb32 ">
+                                Confirm
+                                <span class="fa fa-long-arrow-right" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </t>
+    </template>
+</odoo>
