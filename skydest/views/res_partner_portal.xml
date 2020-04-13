@@ -290,29 +290,13 @@
 
 
 
-                        <div t-attf-class="form-group #{error.get('Resume') and 'has-error' or ''} col-lg-6">
-                            <label class="col-form-label" for="Resume">Resume (attach pdf file)</label>
-                            <input type="file" class="form-control o_website_form_input" name="Resume" />
+                        <div t-attf-class="form-group #{error.get('resume') and 'has-error' or ''} col-lg-6">
+                            <label class="col-form-label" for="resume">Resume (attach pdf file)</label>
+                            <input type="file" class="form-control o_website_form_input" name="resume" />
                         </div>
 
 
                             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         <div class="clearfix">
                             <button type="submit" class="btn btn-primary pull-right mb32 ">
                                 Confirm
@@ -324,4 +308,19 @@
             </form>
         </t>
     </template>
+
+<data>
+    <record id="base.model_res_partner" model="ir.model">
+            <field name="website_form_access">True</field>
+            <field name="website_form_label">Customer</field>
+        </record>
+    <function model="ir.model.fields" name="formbuilder_whitelist">
+            <value>res.partner</value>
+            <value eval="[
+                'name', 'phone', 'email',
+                'city', 'zip', 'street', 'street2', 'state_id', 'country_id',
+                'vat', 'company_name','experience'
+            ]"/>
+        </function>
+    </data>
 </odoo>

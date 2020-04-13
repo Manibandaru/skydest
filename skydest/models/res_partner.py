@@ -64,4 +64,6 @@ class PortalUser(models.Model):
                                             ] , string='Intern Availability')
     previous_emp = fields.Char('Previous Employer')
     certification = fields.Char('Certifications')
+    partner_phone = fields.Char('Phone')
+    resume = fields.Binary('Resume')
 
