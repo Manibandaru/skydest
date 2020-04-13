@@ -29,6 +29,8 @@
                             <field name="availability_intern"/>
                             <field name="previous_emp"/>
                             <field name="certification"/>
+                            <field name="partner_phone"/>
+                            <field name="resume"/>
                         </group>
                     </group>
 
